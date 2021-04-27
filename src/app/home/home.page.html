@@ -1,20 +1,104 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div id="mainContainer">
+
+    <div id="topContainer">
+
+      <div id="topInnerContainer">
+        <div style="display: flex; flex-direction: row; margin-bottom: 16px;">
+          <div id="welcomeMsgContainer">
+            <h2>Hello Lahya</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+
+          <div id="userImgContainer">
+            <ion-avatar (click)="goToProfile()">
+              <img src="../../assets/imgs/user.jpeg">
+            </ion-avatar>
+          </div>
+        </div>
+
+        <ion-searchbar showCancelButton="focus" cancelButtonText="Custom Cancel"></ion-searchbar>
+
+      </div>
+
+      <div id="bottomInnerContainer">
+        <h4>Categories</h4>
+        <table>
+          <tr>
+            <td align="center">
+              <div class="catIcon">
+                <ion-icon src="../../assets/icon/electrician.svg"></ion-icon>
+              </div>
+              <p>Electrician</p>
+            </td>
+
+            <td align="center">
+              <div class="catIcon">
+                <ion-icon src="../../assets/icon/plumber.svg"></ion-icon>
+              </div>
+              <p>Plumber</p>
+            </td>
+
+            <td align="center">
+              <div class="catIcon">
+                <ion-icon src="../../assets/icon/coffee-shop.svg"></ion-icon>
+              </div>
+              <p>Outdoor</p>
+            </td>
+
+            <td align="center">
+              <div class="catIcon">
+                <ion-icon src="../../assets/icon/carpenter.svg"></ion-icon>
+              </div>
+              <p>Carpenter</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+
+    <div id="bottomContainer">
+
+      <h3>Most Popular</h3>
+
+      <div id="serviceListContainer">
+
+        <div class="listItem" *ngFor="let i of serviceListMD">
+          <img src="{{ i.img }}" alt="">
+          <div class="contentContainer">
+            <h4>{{ i.name }}</h4>
+            <p>
+              <ion-icon color='success' src="../../assets/icon/time.svg"></ion-icon>
+              {{ i.availableTimeSlot }}
+            </p>
+            <p>
+              <ion-icon src="../../assets/icon/week.svg">
+              </ion-icon> {{ i.availableWeekDays }}
+            </p>
+
+            <table style="width: 100%;">
+              <tr>
+                <td>
+                  <p style="margin: 0px;">
+                    <ion-icon src="../../assets/icon/category.svg"></ion-icon>
+                    {{ i.category }}
+                  </p>
+                </td>
+
+                <td align="right">
+                  <ion-button fill="clear" size="small">View</ion-button>
+                </td>
+              </tr>
+            </table>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
+
 </ion-content>
